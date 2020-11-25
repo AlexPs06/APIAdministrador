@@ -40,6 +40,7 @@ class AdmiController {
         const token = request.only(['token'])
         var data = []//C:\\Users\\luis_\\Documents\\Maestria\\inteligencia artificial\\CHATBOT-T\\api\\admin\\apiAdmin\\
         const directoryPath = "archivosAIML"
+
         try {
             var ls=fs2.readdirSync(directoryPath);
 
@@ -80,10 +81,30 @@ class AdmiController {
                 return response.send(data.toString())
             } catch (error) {
                 return response
-            .status(error.status)
-            .send(error)
+                .status(error.status)
+                .send(error)
             }
             
+    }
+
+    async uploadFile({request, response}) {
+        const temp = request.only(['token','path','content' ])
+        console.log(temp);
+        try {
+            fs.writeFile(temp.path,temp.content, function (err, data){
+                    if(err){
+                        return response.status(err.status).send(err)
+                    }
+                    return response.status(201).send("bien")
+                    
+
+            }).catch(error =>{
+                return response.status(error.status).send(error)
+            }) 
+        } catch (error) {
+            return response.status(error.status).send(error)
+        }
+
     }
 
 

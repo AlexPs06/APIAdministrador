@@ -26,6 +26,8 @@ Route.group(()=>{
   Route.get('users', 'AdmiController.index')
   Route.get('files', 'AdmiController.getFiles')
   Route.get('file', 'AdmiController.openFile')
+  
+  Route.post('file', 'AdmiController.uploadFile')
 
 
 } ).prefix("admin")
