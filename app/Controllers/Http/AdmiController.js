@@ -107,6 +107,26 @@ class AdmiController {
 
     }
 
+    async addFile({request, response}) {
+        const temp = request.only(['token','content','name' ])
+        console.log(temp);
+        try {
+            fs.writeFile("archivosAIML\\"+temp.name,temp.content, function (err, data){
+                    if(err){
+                        return response.status(err.status).send(err)
+                    }
+                    return response.status(201).send("bien")
+                    
+
+            }).catch(error =>{
+                return response.status(error.status).send(error)
+            }) 
+        } catch (error) {
+            return response.status(error.status).send(error)
+        }
+
+    }
+
 
 }
 

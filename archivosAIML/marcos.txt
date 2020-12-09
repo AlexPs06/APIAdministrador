@@ -1,0 +1,14 @@
+agencia 
+agencia nombre titular zona
+
+
+vendedor
+vendedor nombre agencia
+
+select agencia.nombre, agencia.agencia, vendedor.nombre from agencia, vendedor WHERE(agencia.agencia = vendedor.agencia) 
+
+
+SELECT * , COUNT(vendedor.agencia), MAX(empleados) from vendedor, agencia WHERE agencia.agencia= vendedor.agencia GROUP BY (agencia.agencia)
+
+
+SELECT agencia.nombre , COUNT(vendedor.agencia) from vendedor, agencia WHERE agencia.agencia= vendedor.agencia GROUP BY (agencia.agencia) 

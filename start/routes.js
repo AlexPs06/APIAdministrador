@@ -28,6 +28,7 @@ Route.group(()=>{
   Route.get('file', 'AdmiController.openFile')
   
   Route.post('file', 'AdmiController.uploadFile')
-
+  Route.post('addFile', 'AdmiController.addFile')
+  
 
 } ).prefix("admin")
