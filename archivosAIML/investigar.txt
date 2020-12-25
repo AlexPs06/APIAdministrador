@@ -1,2 +1,0 @@
-dialogflow la flexibilidad si es una caja negra o hay transparencia
-NLP.js realiza procesamiento por voz
